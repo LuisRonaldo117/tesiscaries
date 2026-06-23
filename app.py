@@ -249,6 +249,21 @@ st.markdown(
         box-shadow: 0 2px 16px rgba(192,57,43,0.5) !important;
         transform: translateY(-1px) !important;
     }
+
+    @media (max-width: 768px) {
+        .header { padding: 1rem 1.2rem; }
+        .header h1 { font-size: 1.2rem !important; }
+        .header .badge { font-size: 0.65rem; padding: 0.2rem 0.8rem; }
+        .header .equipo { font-size: 0.8rem !important; }
+        .header .equipo .linea { font-size: 0.9rem !important; }
+        .card { padding: 0.8rem 1rem !important; }
+        .card-titulo { font-size: 0.9rem !important; }
+        .block-container { max-width: 100% !important; padding: 0.5rem 0.8rem !important; }
+        .image-wrapper { padding: 0.4rem !important; }
+        .image-label { font-size: 0.75rem !important; padding: 0.15rem 0.6rem !important; }
+        div[data-testid="stFileUploader"] section { padding: 1rem !important; }
+        .footer { font-size: 0.65rem !important; }
+    }
 </style>
 """,
     unsafe_allow_html=True,
