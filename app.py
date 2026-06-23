@@ -215,8 +215,8 @@ st.markdown(
         border-top: 1px solid #2a4a6a;
     }
 
-    .stDeployButton, .stAppDeployButton { display: none !important; }
-    .stMainToolbar > div:last-child { display: none !important; }
+    header[data-testid="stHeader"] { display: none !important; }
+    .appview-container .main .block-container { padding-top: 1rem !important; }
     .stAlert { border-radius: 8px; }
     div[data-testid="stFileUploader"] { margin-bottom: 0; }
 

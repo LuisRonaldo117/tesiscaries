@@ -1,7 +1,3 @@
-[client]
-showToolbar = false
-toolbarMode = "minimal"
-
 [theme]
 base = "dark"
 primaryColor = "#6da5d1"
