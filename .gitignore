@@ -1,0 +1,17 @@
+# Entorno
+.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Archivos temporales
+temp.jpg
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/secrets.toml
