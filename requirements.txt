@@ -1,8 +1,6 @@
-streamlit==1.58.0
-opencv-python==4.10.0.84
-supervision==0.29.0.post0
-inference-sdk==0.45.1
-Pillow==10.4.0
-numpy==1.26.4
-python-dotenv==1.2.2
-opencv-python-headless==4.13.0.92
+streamlit
+supervision==0.18.0
+opencv-python-headless
+Pillow
+numpy
+requests

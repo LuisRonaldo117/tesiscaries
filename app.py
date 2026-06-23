@@ -3,13 +3,10 @@ import tempfile
 from pathlib import Path
 
 import numpy as np
+import requests
 import streamlit as st
-from dotenv import load_dotenv
-from inference_sdk import InferenceHTTPClient
 from PIL import Image
 import supervision as sv
-
-load_dotenv()
 
 ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY")
 MODEL_ID = "dental-caries-i8vaj"
@@ -18,20 +15,11 @@ CONFIDENCE_THRESHOLD = 0.30
 st.set_page_config(page_title="Detector de Caries Dental", layout="wide")
 
 
-@st.cache_resource
-def get_client() -> InferenceHTTPClient:
-    return InferenceHTTPClient(
-        api_url="https://serverless.roboflow.com",
-        api_key=ROBOFLOW_API_KEY,
-    )
-
-
 def validate_api_key() -> bool:
     if not ROBOFLOW_API_KEY or ROBOFLOW_API_KEY == "tu_api_key_aqui":
         st.error(
-            "Configura tu API Key de Roboflow. "
-            "Crea un archivo `.env` con `ROBOFLOW_API_KEY=tu_clave` "
-            "o configúrala en las variables de entorno."
+            "Configura tu API Key de Roboflow como variable de entorno "
+            "`ROBOFLOW_API_KEY` en los Secrets de Streamlit Cloud."
         )
         return False
     return True
@@ -45,13 +33,15 @@ def load_image(uploaded_file) -> Image.Image | None:
         return None
 
 
-def run_inference(
-    client: InferenceHTTPClient, image_path: str, model_version: str
-) -> dict | None:
+def run_inference(image_path: str, model_version: str) -> dict | None:
     model_id = f"{MODEL_ID}/{model_version}"
+    url = f"https://detect.roboflow.com/{model_id}?api_key={ROBOFLOW_API_KEY}"
     try:
         with st.spinner("Analizando radiografía..."):
-            return client.infer(image_path, model_id=model_id)
+            with open(image_path, "rb") as f:
+                resp = requests.post(url, files={"file": f})
+            resp.raise_for_status()
+            return resp.json()
     except Exception as e:
         st.error(f"Error en la inferencia: {e}")
         return None
@@ -318,8 +308,7 @@ with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as tmp:
     tmp_path = Path(tmp.name)
     image.save(tmp_path, "JPEG")
 
-client = get_client()
-result = run_inference(client, str(tmp_path), "1")
+result = run_inference(str(tmp_path), "1")
 tmp_path.unlink(missing_ok=True)
 
 if result is None:
