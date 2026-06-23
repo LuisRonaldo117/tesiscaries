@@ -123,13 +123,15 @@ st.markdown(
     }
     .header .badge {
         display: inline-block;
-        background: rgba(255,255,255,0.06);
+        background: rgba(255,255,255,0.15);
         padding: 0.3rem 1.2rem;
         border-radius: 20px;
         font-size: 0.8rem;
         margin-bottom: 0.7rem;
         letter-spacing: 0.5px;
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: white;
+        font-weight: 600;
     }
     .header .equipo {
         font-size: 1.5rem;
@@ -253,7 +255,7 @@ st.markdown(
     @media (max-width: 768px) {
         .header { padding: 1rem 1.2rem; }
         .header h1 { font-size: 1.2rem !important; }
-        .header .badge { font-size: 0.65rem; padding: 0.2rem 0.8rem; }
+        .header .badge { font-size: 0.7rem; padding: 0.2rem 0.8rem; color: white !important; background: rgba(255,255,255,0.15) !important; }
         .header .equipo { font-size: 0.8rem !important; }
         .header .equipo .linea { font-size: 0.9rem !important; }
         .card { padding: 0.8rem 1rem !important; }
