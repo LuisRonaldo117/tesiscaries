@@ -19,7 +19,7 @@ st.set_page_config(page_title="Detector de Caries Dental", layout="wide")
 
 
 def validate_api_key() -> bool:
-    if not ROBOFLOW_API_KEY or ROBOFLOW_API_KEY == "XaWJq0G22Dy7p6HR6D9k":
+    if not ROBOFLOW_API_KEY:
         st.error(
             "Configura tu API Key de Roboflow como variable de entorno "
             "`ROBOFLOW_API_KEY` en los Secrets de Streamlit Cloud."
