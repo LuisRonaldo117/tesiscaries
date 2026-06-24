@@ -223,7 +223,7 @@ st.markdown(
     .stAlert { border-radius: 8px; }
     div[data-testid="stFileUploader"] { margin-bottom: 0; }
 
-    p, ol, ul, dl { color: #2c3e50 !important; }
+    p, ol, ul, dl {  }
     label, .stFileUploader { color: #2c3e50 !important; }
     div[data-testid="stFileUploader"] section {
         padding: 2rem !important;
@@ -241,19 +241,19 @@ st.markdown(
     }
     div[data-testid="column"] > div:has(button) { gap: 1rem; }
     .stButton button {
-        background: #e67e22 !important;
+        background: #1a3a5c !important;
         color: white !important;
-        border: none !important;
-        padding: 0.7rem 1.5rem !important;
+        border: 1px solid #2a5a8a !important;
+        padding: 0.6rem 1.5rem !important;
         border-radius: 10px !important;
-        font-weight: 700 !important;
-        font-size: 1rem !important;
-        letter-spacing: 1px !important;
-        box-shadow: 0 3px 10px rgba(230,126,34,0.4) !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
+        box-shadow: 0 2px 8px rgba(26,58,92,0.25) !important;
     }
     .stButton button:hover {
-        background: #d35400 !important;
-        box-shadow: 0 5px 16px rgba(230,126,34,0.5) !important;
+        background: #2c5f8a !important;
+        border-color: #3a7ab8 !important;
+        box-shadow: 0 4px 14px rgba(26,58,92,0.35) !important;
     }
     .stDownloadButton button {
         background: #c0392b !important;
