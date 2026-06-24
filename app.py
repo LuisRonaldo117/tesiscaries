@@ -152,7 +152,7 @@ st.markdown(
     }
     .header .equipo .cargo {
         font-weight: 700;
-        color: #7ab7e0;
+        color: #ffffff;
     }
 
     .card {
@@ -164,7 +164,7 @@ st.markdown(
         border: 1px solid #2a4a6a;
     }
     .card-titulo {
-        color: #b8d8f0;
+        color: #ffffff;
         font-size: 1.1rem;
         font-weight: 600;
         margin-bottom: 1rem;
@@ -202,11 +202,11 @@ st.markdown(
     }
     .image-label-original {
         background: #1a3050;
-        color: #8dc4f0;
+        color: #ffffff;
     }
     .image-label-result {
         background: #2a3a1a;
-        color: #d4c84b;
+        color: #ffffff;
     }
 
     .footer {
@@ -236,7 +236,7 @@ st.markdown(
         background: #e2ecf5 !important;
     }
     div[data-testid="stFileUploader"] section > div {
-        color: #1a3050 !important;
+        color: #2c3e50 !important;
         font-size: 1rem !important;
     }
     div[data-testid="column"] > div:has(button) { gap: 1rem; }
