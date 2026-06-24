@@ -104,7 +104,7 @@ def image_to_bytes(img: Image.Image) -> bytes:
 st.markdown(
     """
 <style>
-    .main { background-color: #ffffff; }
+    .main { background-color: #f0f2f5; }
     .block-container { max-width: 1400px !important; padding-top: 1.5rem !important; }
 
     .header {
@@ -241,18 +241,19 @@ st.markdown(
     }
     div[data-testid="column"] > div:has(button) { gap: 1rem; }
     .stButton button {
-        background: #1a3050 !important;
+        background: #2c5f8a !important;
         color: white !important;
-        border: 1px solid #2a4a6a !important;
-        padding: 0.5rem 1rem !important;
+        border: none !important;
+        padding: 0.6rem 1.2rem !important;
         border-radius: 10px !important;
         font-weight: 600 !important;
-        font-size: 0.9rem !important;
+        font-size: 0.95rem !important;
         transition: all 0.2s !important;
+        box-shadow: 0 2px 8px rgba(44,95,138,0.3) !important;
     }
     .stButton button:hover {
-        background: #2a4a6a !important;
-        border-color: #6da5d1 !important;
+        background: #1a4a7a !important;
+        box-shadow: 0 4px 12px rgba(44,95,138,0.4) !important;
     }
     .stDownloadButton button {
         background: #c0392b !important;
