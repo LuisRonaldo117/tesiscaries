@@ -104,7 +104,7 @@ def image_to_bytes(img: Image.Image) -> bytes:
 st.markdown(
     """
 <style>
-    .main { background-color: red; }
+    .main { background-color: #ffffff; }
     .block-container { max-width: 1400px !important; padding-top: 1.5rem !important; }
 
     .header {
@@ -223,20 +223,20 @@ st.markdown(
     .stAlert { border-radius: 8px; }
     div[data-testid="stFileUploader"] { margin-bottom: 0; }
 
-    p, ol, ul, dl { color: #d1d5db !important; }
-    label, .stFileUploader { color: #d1d5db !important; }
+    p, ol, ul, dl { color: #2c3e50 !important; }
+    label, .stFileUploader { color: #2c3e50 !important; }
     div[data-testid="stFileUploader"] section {
         padding: 2rem !important;
         border: 2px dashed #2a4a6a !important;
         border-radius: 14px !important;
-        background: #0f1e33 !important;
+        background: #f0f4f8 !important;
     }
     div[data-testid="stFileUploader"] section:hover {
         border-color: #6da5d1 !important;
-        background: #142a45 !important;
+        background: #e2ecf5 !important;
     }
     div[data-testid="stFileUploader"] section > div {
-        color: #b8d8f0 !important;
+        color: #1a3050 !important;
         font-size: 1rem !important;
     }
     div[data-testid="column"] > div:has(button) { gap: 1rem; }
@@ -331,7 +331,7 @@ with col_btn2:
 
 if st.session_state.modal in ("prob", "sol"):
     st.markdown(
-        "<style>.stApp, .main, .block-container, section:first-of-type { background-color: white !important; }</style>",
+        "<style>.stApp, .main, .block-container { background-color: white !important; }</style>",
         unsafe_allow_html=True,
     )
     img = "problematica" if st.session_state.modal == "prob" else "solucion"
