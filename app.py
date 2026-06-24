@@ -239,6 +239,21 @@ st.markdown(
         color: #b8d8f0 !important;
         font-size: 1rem !important;
     }
+    div[data-testid="column"] > div:has(button) { gap: 1rem; }
+    .stButton button {
+        background: #1a3050 !important;
+        color: white !important;
+        border: 1px solid #2a4a6a !important;
+        padding: 0.5rem 1rem !important;
+        border-radius: 10px !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        transition: all 0.2s !important;
+    }
+    .stButton button:hover {
+        background: #2a4a6a !important;
+        border-color: #6da5d1 !important;
+    }
     .stDownloadButton button {
         background: #c0392b !important;
         color: white !important;
@@ -297,6 +312,29 @@ st.markdown(
 
 if not validate_api_key():
     st.stop()
+
+# ---------------------------------------------------------------------------
+# INFORMACION DEL PROYECTO
+# ---------------------------------------------------------------------------
+
+st.markdown(
+    '<div class="card">'
+    '<div class="card-titulo">Informacion del proyecto</div>',
+    unsafe_allow_html=True,
+)
+
+col_btn1, col_btn2, _ = st.columns([1, 1, 3])
+with col_btn1:
+    mostrar_prob = st.button("Problematica", use_container_width=True)
+with col_btn2:
+    mostrar_sol = st.button("Solucion", use_container_width=True)
+
+if mostrar_prob:
+    st.image("assets/problematica.jpg", use_container_width=True)
+if mostrar_sol:
+    st.image("assets/solucion.jpg", use_container_width=True)
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # CARGA DE IMAGEN
