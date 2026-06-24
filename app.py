@@ -285,47 +285,6 @@ st.markdown(
         .footer { font-size: 0.65rem !important; }
     }
 
-    .modal-overlay {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        padding: 1rem;
-    }
-    .modal-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-    }
-    .modal-content img {
-        max-width: 100%;
-        max-height: 85vh;
-        border-radius: 12px;
-        box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-    }
-    .modal-close {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        background: rgba(255,255,255,0.15);
-        color: white;
-        border: none;
-        font-size: 1.5rem;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s;
-    }
-    .modal-close:hover {
-        background: rgba(255,255,255,0.3);
-    }
 </style>
 """,
     unsafe_allow_html=True,
@@ -356,33 +315,11 @@ if not validate_api_key():
     st.stop()
 
 # ---------------------------------------------------------------------------
-# MODAL / BOTONES
+# BOTONES
 # ---------------------------------------------------------------------------
 
 if "modal" not in st.session_state:
     st.session_state.modal = None
-
-imgs = {"prob": "assets/problematica.jpg", "sol": "assets/solucion.jpg"}
-
-if st.session_state.modal in imgs:
-    st.markdown(
-        f"""
-    <style>
-        .main > div {{ display: none !important; }}
-        .modal-overlay {{ display: flex !important; }}
-    </style>
-    <div class="modal-overlay">
-        <div class="modal-content">
-            <img src="https://raw.githubusercontent.com/LuisRonaldo117/tesiscaries/main/assets/{st.session_state.modal}.jpg" />
-        </div>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-    if st.button("Cerrar", key="close_modal"):
-        st.session_state.modal = None
-        st.rerun()
-    st.stop()
 
 col_btn1, col_btn2, _ = st.columns([1, 1, 3])
 with col_btn1:
@@ -391,6 +328,20 @@ with col_btn1:
 with col_btn2:
     if st.button("Solucion", use_container_width=True):
         st.session_state.modal = "sol"
+
+if st.session_state.modal == "prob":
+    st.image("assets/problematica.jpg", use_container_width=True)
+    if st.button("Cerrar", key="cp"):
+        st.session_state.modal = None
+        st.rerun()
+    st.stop()
+
+if st.session_state.modal == "sol":
+    st.image("assets/solucion.jpg", use_container_width=True)
+    if st.button("Cerrar", key="cs"):
+        st.session_state.modal = None
+        st.rerun()
+    st.stop()
 
 # ---------------------------------------------------------------------------
 # CARGA DE IMAGEN
