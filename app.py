@@ -104,7 +104,7 @@ def image_to_bytes(img: Image.Image) -> bytes:
 st.markdown(
     """
 <style>
-    .main { background-color: #FFFFFF; }
+    .main { background-color: red; }
     .block-container { max-width: 1400px !important; padding-top: 1.5rem !important; }
 
     .header {
@@ -331,7 +331,7 @@ with col_btn2:
 
 if st.session_state.modal in ("prob", "sol"):
     st.markdown(
-        "<style>.main { background-color: white !important; }</style>",
+        "<style>.stApp, .main, .block-container, section:first-of-type { background-color: white !important; }</style>",
         unsafe_allow_html=True,
     )
     img = "problematica" if st.session_state.modal == "prob" else "solucion"
