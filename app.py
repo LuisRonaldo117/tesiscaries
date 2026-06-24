@@ -5,8 +5,11 @@ from pathlib import Path
 import numpy as np
 import requests
 import streamlit as st
+from dotenv import load_dotenv
 from PIL import Image
 import supervision as sv
+
+load_dotenv()
 
 ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY")
 MODEL_ID = "dental-caries-i8vaj"
@@ -16,7 +19,7 @@ st.set_page_config(page_title="Detector de Caries Dental", layout="wide")
 
 
 def validate_api_key() -> bool:
-    if not ROBOFLOW_API_KEY or ROBOFLOW_API_KEY == "tu_api_key_aqui":
+    if not ROBOFLOW_API_KEY or ROBOFLOW_API_KEY == "XaWJq0G22Dy7p6HR6D9k":
         st.error(
             "Configura tu API Key de Roboflow como variable de entorno "
             "`ROBOFLOW_API_KEY` en los Secrets de Streamlit Cloud."
