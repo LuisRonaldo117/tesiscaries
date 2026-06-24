@@ -104,7 +104,7 @@ def image_to_bytes(img: Image.Image) -> bytes:
 st.markdown(
     """
 <style>
-    .main { background-color: #1a1d23; }
+    .main { background-color: #FFFFFF; }
     .block-container { max-width: 1400px !important; padding-top: 1.5rem !important; }
 
     .header {
@@ -329,16 +329,14 @@ with col_btn2:
     if st.button("Solucion", use_container_width=True):
         st.session_state.modal = "sol"
 
-if st.session_state.modal == "prob":
-    st.image("assets/problematica.jpg", use_container_width=True)
-    if st.button("Cerrar", key="cp"):
-        st.session_state.modal = None
-        st.rerun()
-    st.stop()
-
-if st.session_state.modal == "sol":
-    st.image("assets/solucion.jpg", use_container_width=True)
-    if st.button("Cerrar", key="cs"):
+if st.session_state.modal in ("prob", "sol"):
+    st.markdown(
+        "<style>.main { background-color: white !important; }</style>",
+        unsafe_allow_html=True,
+    )
+    img = "problematica" if st.session_state.modal == "prob" else "solucion"
+    st.image(f"assets/{img}.jpg", use_container_width=True)
+    if st.button("Cerrar", key="c"):
         st.session_state.modal = None
         st.rerun()
     st.stop()
@@ -439,7 +437,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown(
     '<div class="footer">'
-    "Proyecto de Tesis &mdash; Carrera de Odontología &mdash; 2026"
+    " Tesis de Grado &mdash; Carrera de Ingeniería de Sistemas &mdash; 2026"
     "</div>",
     unsafe_allow_html=True,
 )
