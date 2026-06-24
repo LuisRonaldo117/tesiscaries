@@ -241,19 +241,19 @@ st.markdown(
     }
     div[data-testid="column"] > div:has(button) { gap: 1rem; }
     .stButton button {
-        background: #2c5f8a !important;
+        background: #1a3a5c !important;
         color: white !important;
-        border: none !important;
+        border: 2px solid #3a7ab8 !important;
         padding: 0.6rem 1.2rem !important;
         border-radius: 10px !important;
-        font-weight: 600 !important;
-        font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
         transition: all 0.2s !important;
-        box-shadow: 0 2px 8px rgba(44,95,138,0.3) !important;
+        box-shadow: 0 2px 8px rgba(26,58,92,0.3) !important;
     }
     .stButton button:hover {
-        background: #1a4a7a !important;
-        box-shadow: 0 4px 12px rgba(44,95,138,0.4) !important;
+        background: #2c5f8a !important;
+        box-shadow: 0 4px 14px rgba(26,58,92,0.4) !important;
     }
     .stDownloadButton button {
         background: #c0392b !important;
