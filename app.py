@@ -152,7 +152,7 @@ st.markdown(
     }
     .header .equipo .cargo {
         font-weight: 700;
-        color: #ffffff;
+        color: #4da6e8;
     }
 
     .card {
