@@ -13,7 +13,6 @@ load_dotenv()
 
 ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY")
 MODEL_ID = "dental-caries-i8vaj"
-CONFIDENCE_THRESHOLD = 0.30
 
 st.set_page_config(page_title="Detector de Caries Dental", layout="wide")
 
@@ -352,11 +351,21 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-uploaded_file = st.file_uploader(
-    "Selecciona una radiografía panorámica o imagen dental",
-    type=["jpg", "jpeg", "png", "bmp", "tiff"],
-    label_visibility="collapsed",
-)
+col_up, col_th = st.columns([2, 1])
+with col_up:
+    uploaded_file = st.file_uploader(
+        "Selecciona una radiografía panorámica o imagen dental",
+        type=["jpg", "jpeg", "png", "bmp", "tiff"],
+        label_visibility="collapsed",
+    )
+with col_th:
+    confidence_threshold = st.slider(
+        "Umbral de confianza",
+        min_value=0.0,
+        max_value=1.0,
+        value=0.30,
+        step=0.05,
+    )
 
 st.markdown("</div>", unsafe_allow_html=True)
 
@@ -382,7 +391,7 @@ detections = sv.Detections.from_inference(result)
 class_names = get_class_names(result)
 image_array = np.array(image)
 annotated_frame = annotate_image(
-    image_array, detections, CONFIDENCE_THRESHOLD, class_names
+    image_array, detections, confidence_threshold, class_names
 )
 
 # ---------------------------------------------------------------------------
@@ -415,7 +424,7 @@ with col_b:
     st.image(annotated_frame, use_container_width=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
-filtered = filter_by_confidence(detections, CONFIDENCE_THRESHOLD)
+filtered = filter_by_confidence(detections, confidence_threshold)
 if len(filtered) > 0:
     st.warning(
         f"Se detectaron {len(filtered)} zona(s) con posible caries dental."
